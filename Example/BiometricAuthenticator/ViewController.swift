@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BiometricAuthenticator
 
 class ViewController: UIViewController {
 
@@ -20,5 +21,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func authenticateWithBiometrics(_ sender: Any) {
+        let bioAuth = BiometricAuthenticator()
+        if bioAuth.isTouchIdEnabledOnDevice() || bioAuth.isFaceIdEnabledOnDevice() {
+            bioAuth.authenticate(localizedReason: "I want to sign in using biometrics!", successBlock: {
+                // oh boy it worked!
+            }, failureBlock: { (error) in
+                if let error = error {
+                    switch error {
+                    default:
+                        // use the LAError codes to handle the different error scenarios
+                        print("error: \(error.code)")
+                    }
+                }
+            })
+        }
+    }
 }
 
