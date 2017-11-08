@@ -1,0 +1,6 @@
+framework module BiometricAuthenticator {
+  umbrella header "BiometricAuthenticator-umbrella.h"
+
+  export *
+  module * { export * }
+}
