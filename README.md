@@ -13,16 +13,16 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 import BiometricAuthenticator
 
 if BiometricAuthenticator.canAuthenticateWithBiometrics() {
-    BiometricAuthenticator.authenticate("Hooray for fancy authentication!", ) { (success, error) in
+    BiometricAuthenticator.authenticate("Hooray for fancy authentication!") { (success, error) in
         if success {
             // hooray for successful authentication!
         } else {
             switch error {
             case .authFailed:
                 // either the face or finger print didn't match what iOS has stored
-                self.fallback()
+                ...
             default:
-                self.showError(error)
+                ...
             }
         }
     }
@@ -82,4 +82,4 @@ Chris Corea, ccorea22@gmail.com
 
 ## License
 
-BiometricAuthenticator is available under the MIT license. See the LICENSE file for more info.
+BiometricAuthenticator is available under the MIT license. See the [LICENSE](https://github.com/Chris-Corea/BiometricAuthenticator/blob/master/LICENSE) file for more info.
