@@ -43,19 +43,31 @@ public class BiometricAuthenticator {
     
     public init() {}
     
+    /// Checks if the current device model can support Touch ID.
+    ///
+    /// - Returns: True if the device is known to support Touch ID.
     public func isTouchIdSupportedOnDevice() -> Bool {
         return UIDevice.current.supportsTouchId()
     }
     
+    /// CHecks if the device can support Touch ID and whether or not Touch ID is enabled.
+    ///
+    /// - Returns: True if the device can support Touch ID and the feature is enabled.
     public func isTouchIdEnabledOnDevice() -> Bool {
         let context = LAContext()
         return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) && isTouchIdSupportedOnDevice()
     }
     
+    /// Checks if the current device model can support Face ID.
+    ///
+    /// - Returns: True if the device is known to support Face ID.
     public func isFaceIdSupportedOnDevice() -> Bool {
         return UIDevice.current.supportsFaceId()
     }
     
+    /// CHecks if the device can support Face ID and whether or not Face ID is enabled.
+    ///
+    /// - Returns: True if the device can support Face ID and the feature is enabled.
     public func isFaceIdEnabledOnDevice() -> Bool {
         let context = LAContext()
         return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) && isFaceIdSupportedOnDevice()

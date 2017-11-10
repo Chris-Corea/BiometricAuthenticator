@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/BiometricAuthenticator.svg?style=flat)](http://cocoapods.org/pods/BiometricAuthenticator)
 [![Platform](https://img.shields.io/cocoapods/p/BiometricAuthenticator.svg?style=flat)](http://cocoapods.org/pods/BiometricAuthenticator)
 
-## Example
+## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
