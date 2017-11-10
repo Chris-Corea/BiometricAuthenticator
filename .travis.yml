@@ -14,8 +14,8 @@ before_install:
 - pod install --project-directory=Example
 
 env:
-  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone 7'
+  - ACTION=test PLATFORM=iOS DESTINATION='platform=iOS Simulator,name=iPhone 7,OS=9.3'
 
 script:
-- set -o pipefail && xcodebuild -scheme SnapKit -destination "$DESTINATION" $ACTION | xcpretty
+- set -o pipefail && xcodebuild -scheme BiometricAuthentication-Example -destination "$DESTINATION" $ACTION | xcpretty
 - pod lib lint
