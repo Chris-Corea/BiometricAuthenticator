@@ -14,7 +14,6 @@ import BiometricAuthenticator
 
 let bioAuth = BiometricAuthenticator()
 
-let bioAuth = BiometricAuthenticator()
 if bioAuth.isTouchIdEnabledOnDevice() || bioAuth.isFaceIdEnabledOnDevice() {
     bioAuth.authenticate(localizedReason: "Let's authenticate with biometrics!", successBlock: {
         // oh boy it worked!
@@ -60,6 +59,7 @@ Or if you'd rather just check for feature enablement directly:
 import BiometricAuthenticator
 
 let bioAuth = BiometricAuthenticator()
+
 if bioAuth.isTouchIdEnabledOnDevice() {
     ...
 }
@@ -99,7 +99,7 @@ authentication dialog, but no fallback is available for the authentication polic
 
 ## Requirements
 
-Xcode 9+, iOS 9.0+
+Xcode 8+, iOS 9.0+
 
 ## Installation
 
