@@ -18,17 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's use Biometry!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6w-yS-3l5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's use Biometrics!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6w-yS-3l5">
                                 <rect key="frame" x="67" y="117" width="241" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-5T-DDR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-5T-DDR">
                                 <rect key="frame" x="67" y="298" width="241" height="71"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="tmt-2B-EPP"/>
+                                    <constraint firstAttribute="height" constant="71" id="DvQ-dU-4eS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="241" id="tmt-2B-EPP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Authenticate">
@@ -39,17 +40,31 @@
                                     <action selector="authenticateWithBiometrics:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9xF-Cf-u1D"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticated!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYB-05-Y2O">
+                                <rect key="frame" x="67" y="492" width="241" height="71"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="KYB-05-Y2O" firstAttribute="leading" secondItem="SZt-vq-hOU" secondAttribute="leading" constant="67" id="8LR-O1-uj0"/>
+                            <constraint firstItem="KYB-05-Y2O" firstAttribute="top" secondItem="DcD-5T-DDR" secondAttribute="bottom" constant="123" id="8kc-Ko-hJx"/>
                             <constraint firstItem="DcD-5T-DDR" firstAttribute="top" secondItem="G6w-yS-3l5" secondAttribute="bottom" constant="151" id="E5U-dR-6yU"/>
                             <constraint firstItem="SZt-vq-hOU" firstAttribute="trailing" secondItem="G6w-yS-3l5" secondAttribute="trailing" constant="67" id="OMn-Nc-sYx"/>
                             <constraint firstItem="G6w-yS-3l5" firstAttribute="leading" secondItem="SZt-vq-hOU" secondAttribute="leading" constant="67" id="T3W-gm-yfX"/>
+                            <constraint firstItem="SZt-vq-hOU" firstAttribute="trailing" secondItem="KYB-05-Y2O" secondAttribute="trailing" constant="67" id="ZUm-f7-VPh"/>
+                            <constraint firstItem="KYB-05-Y2O" firstAttribute="height" secondItem="DcD-5T-DDR" secondAttribute="height" id="gZI-rz-IyA"/>
                             <constraint firstItem="G6w-yS-3l5" firstAttribute="top" secondItem="SZt-vq-hOU" secondAttribute="top" constant="97" id="qMp-wz-llO"/>
+                            <constraint firstItem="KYB-05-Y2O" firstAttribute="width" secondItem="DcD-5T-DDR" secondAttribute="width" id="sS7-YU-EiA"/>
                             <constraint firstItem="DcD-5T-DDR" firstAttribute="centerX" secondItem="SZt-vq-hOU" secondAttribute="centerX" id="tEE-Mb-LR2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SZt-vq-hOU"/>
                     </view>
+                    <connections>
+                        <outlet property="authConfirmationLabel" destination="KYB-05-Y2O" id="hEJ-0Y-LxM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

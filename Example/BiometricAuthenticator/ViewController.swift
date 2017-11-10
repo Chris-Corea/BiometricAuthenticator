@@ -11,6 +11,8 @@ import BiometricAuthenticator
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var authConfirmationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,8 +26,11 @@ class ViewController: UIViewController {
     @IBAction func authenticateWithBiometrics(_ sender: Any) {
         let bioAuth = BiometricAuthenticator()
         if bioAuth.isTouchIdEnabledOnDevice() || bioAuth.isFaceIdEnabledOnDevice() {
-            bioAuth.authenticate(localizedReason: "Let's authenticate with biometrics!", successBlock: {
-                // oh boy it worked!
+            bioAuth.authenticateWithBiometrics(localizedReason: "Let's authenticate with biometrics!", successBlock: {
+                self.authConfirmationLabel.alpha = 1
+                UIView.animate(withDuration: 1.25, animations: {
+                    self.authConfirmationLabel.alpha = 0
+                })
             }, failureBlock: { (error) in
                 if let error = error {
                     switch error {
