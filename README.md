@@ -12,20 +12,21 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ```swift
 import BiometricAuthenticator
 
-if BiometricAuthenticator.canAuthenticateWithBiometrics() {
-    BiometricAuthenticator.authenticate("Hooray for fancy authentication!") { (success, error) in
-        if success {
-            // hooray for successful authentication!
-        } else {
+let bioAuth = BiometricAuthenticator()
+
+let bioAuth = BiometricAuthenticator()
+if bioAuth.isTouchIdEnabledOnDevice() || bioAuth.isFaceIdEnabledOnDevice() {
+    bioAuth.authenticate(localizedReason: "Let's authenticate with biometrics!", successBlock: {
+        // oh boy it worked!
+    }, failureBlock: { (error) in
+        if let error = error {
             switch error {
-            case .authFailed:
-                // either the face or finger print didn't match what iOS has stored
-                ...
             default:
-                ...
+            // use the LAError code to handle the different error scenarios
+            print("error: \(error.code)")
             }
         }
-    }
+    })
 }
 ```
 
@@ -34,38 +35,71 @@ The BiometricAuthenticator can also determine if the current device has biometri
 ```swift
 import BiometricAuthenticator
 
-if BiometricAuthenticator.isTouchIdSupportedOnDevice() { // check if the feature exists on the device
+let bioAuth = BiometricAuthenticator()
+
+// check if the feature exists on the device
+if bioAuth.isTouchIdSupportedOnDevice() {
     // check if the feature is enabled
-    if BiometricAuthenticator.isTouchIdEnabledOnDevice() {
+    if bioAuth.isTouchIdEnabledOnDevice() {
         // Hooray! We can authenticate using Touch ID!
     }
 }
 
-if BiometricAuthenticator.isFaceIdSupportedOnDevice() { // check if the feature exists on the device
+// check if the feature exists on the device
+if bioAuth.isFaceIdSupportedOnDevice() {
     // check if the feature is enabled
-    if BiometricAuthenticator.isFaceIdEnabledOnDevice() {
+    if bioAuth.isFaceIdEnabledOnDevice() {
         // Hooray! We can authenticate using Face ID!
     }
 }
 ```
 
-Or if you'd rather just check for feature enablement:
+Or if you'd rather just check for feature enablement directly:
 
 ```swift
 import BiometricAuthenticator
 
-if BiometricAuthenticator.isTouchIdEnabledOnDevice() {
+let bioAuth = BiometricAuthenticator()
+if bioAuth.isTouchIdEnabledOnDevice() {
     ...
 }
 
-if BiometricAuthenticator.isFaceIdEnabledOnDevice() {
+if bioAuth.isFaceIdEnabledOnDevice() {
     ...
 }
 ```
 
+### Handling Authentication Errors
+
+The BiometricAuthenticator relies on the Local Authentication module's provided
+error codes. The relevant error codes are below with a bit about what they cover.
+
+`appCancel` - The application cancelled the biometric prompt
+
+`authenticationFailed` - The provided fingerprint or face was not recognized by iOS
+
+`biometryLockout` - Authentication could not continue because the user has been locked
+out of biometric authentication, due to failing authentication too many times.
+
+`biometryNotAvailable` - Authentication could not start because the device does not support
+biometric authentication.
+
+`biometryNotEnrolled` - Authentication could not start because the user has not enrolled in
+biometric authentication.
+
+`passcodeNotSet` - Authentication could not start because the passcode is not set on the device.
+
+`systemCancel` - Authentication was canceled by the system (can be caused by another application
+taking foreground while the authentication dialog was up)
+
+`userCancel` - User cancelled by clicking the cancel option in the authentication dialog.
+
+`userFallback` - Authentication was canceled because the user tapped the fallback button in the
+authentication dialog, but no fallback is available for the authentication policy.
+
 ## Requirements
 
-Xcode 8+, iOS 9.0+
+Xcode 9+, iOS 9.0+
 
 ## Installation
 

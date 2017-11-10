@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'BiometricAuthenticator'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'An easy to use wrapper around the standard iOS biometric authentication methods.'
 
   s.description      = <<-DESC

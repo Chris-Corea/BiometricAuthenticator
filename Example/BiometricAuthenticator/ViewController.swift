@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBAction func authenticateWithBiometrics(_ sender: Any) {
         let bioAuth = BiometricAuthenticator()
         if bioAuth.isTouchIdEnabledOnDevice() || bioAuth.isFaceIdEnabledOnDevice() {
-            bioAuth.authenticate(localizedReason: "I want to sign in using biometrics!", successBlock: {
+            bioAuth.authenticate(localizedReason: "Let's authenticate with biometrics!", successBlock: {
                 // oh boy it worked!
             }, failureBlock: { (error) in
                 if let error = error {
