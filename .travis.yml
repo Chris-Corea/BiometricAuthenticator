@@ -14,7 +14,7 @@ before_install:
 - pod install --project-directory=Example
 
 env:
-  - ACTION=test PLATFORM=iOS DESTINATION='platform=iOS Simulator,name=iPhone 7,OS=9.3'
+  - ACTION=test PLATFORM=iOS DESTINATION='platform=iOS Simulator,id=8BB869B7-8203-4B31-99C9-CC276640EC3D,name=iPhone 6s,OS=9.3'
 
 script:
 - set -o pipefail && xcodebuild -workspace Example/BiometricAuthenticator.xcworkspace -scheme BiometricAuthenticator-Example -destination "$DESTINATION" $ACTION | xcpretty
