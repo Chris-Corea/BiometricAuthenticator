@@ -192,6 +192,7 @@
 				607FACE31AFB9204008FA782 /* Resources */,
 				06C8C27A9B518F305CA18FA0 /* [CP] Embed Pods Frameworks */,
 				4CBC61E4E0614E4C78F5818B /* [CP] Copy Pods Resources */,
+				4A671F281FB78D4A00607F65 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -316,6 +317,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BiometricAuthenticator_Example/Pods-BiometricAuthenticator_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		4A671F281FB78D4A00607F65 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "find ${TARGET_BUILD_DIR} -type d -name \"*.framework\" -exec cp -Rf {} ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ \\;";
 		};
 		4CBC61E4E0614E4C78F5818B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

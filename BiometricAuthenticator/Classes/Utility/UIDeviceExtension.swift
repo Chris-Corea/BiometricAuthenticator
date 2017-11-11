@@ -29,6 +29,7 @@ internal extension UIDevice {
     /// that don't support Touch ID.
     func supportsTouchId() -> Bool {
         let invalidModels = [
+            "x86_64",                   // Simulator
             "iPhone4,1",                // iPhone 4S
             "iPhone5,1", "iPhone5,2",   // iPhone 5
             "iPhone5,3", "iPhone5,4",   // iPhone 5C
@@ -43,6 +44,7 @@ internal extension UIDevice {
     /// Checks if the current device's model name is contained in a list of device names
     /// that don't support Face ID.
     func supportsFaceId() -> Bool {let invalidModels = [
+        "x86_64",                   // Simulator
         "iPhone4,1",                // iPhone 4S
         "iPhone5,1", "iPhone5,2",   // iPhone 5
         "iPhone5,3", "iPhone5,4",   // iPhone 5C
