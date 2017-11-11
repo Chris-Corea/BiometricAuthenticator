@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A671F151FB6A04600607F65 /* BiometricAuthenticatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A671F141FB6A04600607F65 /* BiometricAuthenticatorSpec.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A19A2B052383215B6231407D /* Pods_BiometricAuthenticator_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C78D703D5198426BAFE2E85 /* Pods_BiometricAuthenticator_Example.framework */; };
 		F246F5A330E3563E726354E5 /* Pods_BiometricAuthenticator_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D84A524F19E93A1770CE50 /* Pods_BiometricAuthenticator_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -31,6 +31,7 @@
 		2577569933CF997D6B9D1064 /* BiometricAuthenticator.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BiometricAuthenticator.podspec; path = ../BiometricAuthenticator.podspec; sourceTree = "<group>"; };
 		26D84A524F19E93A1770CE50 /* Pods_BiometricAuthenticator_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiometricAuthenticator_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B3A142F83BA5BB1C651C7E /* Pods-BiometricAuthenticator_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricAuthenticator_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricAuthenticator_Example/Pods-BiometricAuthenticator_Example.release.xcconfig"; sourceTree = "<group>"; };
+		4A671F141FB6A04600607F65 /* BiometricAuthenticatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorSpec.swift; sourceTree = "<group>"; };
 		4C78D703D5198426BAFE2E85 /* Pods_BiometricAuthenticator_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiometricAuthenticator_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5B75BB0E0EE17D32AF9A7B /* Pods-BiometricAuthenticator_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricAuthenticator_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricAuthenticator_Tests/Pods-BiometricAuthenticator_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* BiometricAuthenticator_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricAuthenticator_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,7 +43,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* BiometricAuthenticator_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiometricAuthenticator_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		970519DD321CF18F38B5F720 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A35DB68E8C97546146C8842A /* Pods-BiometricAuthenticator_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricAuthenticator_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricAuthenticator_Tests/Pods-BiometricAuthenticator_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AA415DCCE788CFB59CB642B6 /* Pods-BiometricAuthenticator_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiometricAuthenticator_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BiometricAuthenticator_Example/Pods-BiometricAuthenticator_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				4A671F141FB6A04600607F65 /* BiometricAuthenticatorSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -384,7 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				4A671F151FB6A04600607F65 /* BiometricAuthenticatorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

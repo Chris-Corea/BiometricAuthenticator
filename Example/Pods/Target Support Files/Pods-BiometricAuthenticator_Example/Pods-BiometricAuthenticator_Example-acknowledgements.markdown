@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## BiometricAuthenticator
 
-Copyright (c) 2017 ccorea22@gmail.com <Christopher.Corea@fisglobal.com>
+Copyright (c) 2017 Christopher Corea <ccorea22@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

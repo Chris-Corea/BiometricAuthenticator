@@ -21,7 +21,7 @@ internal extension UIDevice {
     
     /**
     Rather than checking for the device's biometry type which would only return a non-none value
-    if the biometric feature was enabled, the below functions checks against a list of model names
+    if the biometric feature was enabled, the below functions check against a list of model names
     that do not support Touch ID or Face ID.
     **/
     
