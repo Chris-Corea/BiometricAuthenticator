@@ -123,4 +123,12 @@ public class BiometricAuthenticator {
         }
     }
     
+    /// Invalidates the current authentication context and cancels any pending authentication requests.
+    /// - Note:
+    ///     The cancelled evaluation will fail with the `systemCancelled` error code.
+    public func invalidateAuthenticationContext() {
+        let context = LAContext()
+        context.invalidate()
+    }
+    
 }
