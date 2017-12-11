@@ -9,6 +9,10 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+First things first, any application that plans on authenticating with Face ID must inclue the `NSFaceIDUsageDescription` key in the app's Info.plist file. From within in the plist editor in xcode, add a new row and start typing out the following:  `Privacy - Face ID Usage Description` (Xcode should autocomplete) followed by your usage string.
+
+Invoking the authentication prompt can be as easy as:
+
 ```swift
 import BiometricAuthenticator
 

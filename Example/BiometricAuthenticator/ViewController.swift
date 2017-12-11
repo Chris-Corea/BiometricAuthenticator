@@ -8,6 +8,7 @@
 
 import UIKit
 import BiometricAuthenticator
+import LocalAuthentication
 
 class ViewController: UIViewController {
 
@@ -33,7 +34,11 @@ class ViewController: UIViewController {
                 })
             }, failureBlock: { (error) in
                 if let error = error {
-                    switch error {
+                    switch error.code {
+                    case .appCancel:
+                        print("The app cancelled the prompt")
+                    case .authenticationFailed:
+                        print("The provided finger print or face did not match the saved credential")
                     default:
                         // use the LAError codes to handle the different error scenarios
                         print("error: \(error.code)")

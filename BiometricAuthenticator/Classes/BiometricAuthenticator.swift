@@ -8,6 +8,8 @@
 import Foundation
 import LocalAuthentication
 
+@_exported import struct LocalAuthentication.LAError
+
 /**
  The BiometricAuthenticator relies on the Local Authentication module's provided
  error codes. The relevant error codes are below with a bit about what they cover.
@@ -43,6 +45,17 @@ public class BiometricAuthenticator {
     
     public init() {}
     
+    /// The localized reason presented to the user for authentication.
+    public var defaultAuthenticationReason: String = "Use Biometrics!"
+    
+    /// The localized title for the fallback button in the dialog presented to the user during authentication.
+    /// - Note:
+    ///     This attribute will only be applied when running on iOS 10 or higher
+    public var defaultFallbackButtonTitle: String? = nil
+    
+    /// The localized title for the fallback dialog presented to the user during authentication.
+    public var defaultFallbackAlertTitle: String? = nil
+    
     /// Checks if the current device model can support Touch ID.
     ///
     /// - Returns: True if the device is known to support Touch ID.
@@ -76,14 +89,18 @@ public class BiometricAuthenticator {
     /// Use this function to authenticate a user if biometric authentication is enabled on the user's phone.
     ///
     /// - Parameters:
-    ///   - localizedReason: The string displayed to the user explaining why the application is requesting authentication.
+    ///   - localizedReason: The string displayed to the user explaining why the application is requesting authentication (defaults to `defaultAuthenticationReason`).
     ///   - successBlock: A function or block of code executed if authentication succeeds.
     ///   - failureBlock: A function or block of code executed if authentication fails. The function takes a single LAError as
     ///                   a parameter. Use the error code provided in the LAError object to handle the authentication failure
     ///                   appropriately.
-    public func authenticateWithBiometrics(localizedReason: String?, successBlock: BASuccessBlock, failureBlock: BAFailureBlock) {
+    public func authenticateWithBiometrics(localizedReason: String? = nil, successBlock: BASuccessBlock, failureBlock: BAFailureBlock) {
         let context = LAContext()
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: localizedReason ?? "Use Biometrics!") { (success, error) in
+        if #available(iOS 10, *) {
+            context.localizedCancelTitle = defaultFallbackButtonTitle
+        }
+        context.localizedFallbackTitle = defaultFallbackAlertTitle
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: localizedReason ?? defaultAuthenticationReason) { (success, error) in
             if success {
                 successBlock?()
             } else {
@@ -103,14 +120,18 @@ public class BiometricAuthenticator {
     ///     return true, ```authenticateWithBiometrics``` should be called instead.
     ///
     /// - Parameters:
-    ///   - localizedReason: The string displayed to the user explaining why the application is requesting authentication.
+    ///   - localizedReason: The string displayed to the user explaining why the application is requesting authentication (defaults to `defaultAuthenticationReason`).
     ///   - successBlock: A function or block of code executed if authentication succeeds.
     ///   - failureBlock: A function or block of code executed if authentication fails. The function takes a single LAError as
     ///                   a parameter. Use the error code provided in the LAError object to handle the authentication failure
     ///                   appropriately.
-    public func authenticateWithPasscode(localizedReason: String?, successBlock: BASuccessBlock, failureBlock: BAFailureBlock) {
+    public func authenticateWithPasscode(localizedReason: String? = nil, successBlock: BASuccessBlock, failureBlock: BAFailureBlock) {
         let context = LAContext()
-        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: localizedReason ?? "Default Text") { (success, error) in
+        if #available(iOS 10, *) {
+            context.localizedCancelTitle = defaultFallbackButtonTitle
+        }
+        context.localizedFallbackTitle = defaultFallbackAlertTitle
+        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: localizedReason ?? defaultAuthenticationReason) { (success, error) in
             if success {
                 successBlock?()
             } else {
