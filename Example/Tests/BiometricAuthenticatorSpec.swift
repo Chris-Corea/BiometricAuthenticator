@@ -15,19 +15,13 @@ class BiometricAuthenticatorSpec: QuickSpec {
         describe("A simulator") {
             let sut = BiometricAuthenticator()
             
-            it("should not support Touch ID") {
+            it("should support Touch ID") {
                 var res = sut.isTouchIdSupportedOnDevice()
-                expect(res) == false
-                
-                res = sut.isTouchIdEnabledOnDevice()
-                expect(res) == false
+                expect(res) == true
             }
             
             it("should not support Face ID") {
                 var res = sut.isFaceIdSupportedOnDevice()
-                expect(res) == false
-                
-                res = sut.isFaceIdEnabledOnDevice()
                 expect(res) == false
             }
         }
