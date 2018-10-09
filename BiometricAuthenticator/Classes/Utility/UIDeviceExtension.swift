@@ -32,7 +32,10 @@ internal extension UIDevice {
             "iPhone4,1",                // iPhone 4S
             "iPhone5,1", "iPhone5,2",   // iPhone 5
             "iPhone5,3", "iPhone5,4",   // iPhone 5C
-            "iPhone10,3", "iPhone10,6"  // iPhone X (CDMA and GSM)
+            "iPhone10,3", "iPhone10,6",  // iPhone X (CDMA and GSM)
+            "iPhone11,2",                // iPhone XS
+            "iPhone11,4", "iPhone11,6",  // iPhone XS Max
+            "iPhone11,8"                 // iPhone XR
         ]
         if let modelName = deviceSystemName() {
             return !invalidModels.contains(modelName)
