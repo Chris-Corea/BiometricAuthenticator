@@ -1,22 +1,16 @@
 PODS:
-  - BiometricAuthenticator (1.0.0)
-  - Nimble (7.0.2)
-  - Quick (1.2.0)
+  - BiometricAuthenticator (1.2.0)
 
 DEPENDENCIES:
   - BiometricAuthenticator (from `../`)
-  - Nimble (~> 7.0.2)
-  - Quick (~> 1.2.0)
 
 EXTERNAL SOURCES:
   BiometricAuthenticator:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  BiometricAuthenticator: 798c977ac17ab74d53d6ef79dd91ee2550ccb5a1
-  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  BiometricAuthenticator: 818b710a1b7c29735bfb40852cc70148f8c205de
 
-PODFILE CHECKSUM: bb4824cf4834fb28b56e1cc672733611da8160c8
+PODFILE CHECKSUM: 20e59698257dc702ae63abe9ea12cd52ab445517
 
-COCOAPODS: 1.3.0
+COCOAPODS: 1.6.0.beta.1
