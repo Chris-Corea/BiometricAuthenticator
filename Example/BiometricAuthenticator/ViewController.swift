@@ -28,10 +28,12 @@ class ViewController: UIViewController {
         let bioAuth = BiometricAuthenticator()
         if bioAuth.isTouchIdEnabledOnDevice() || bioAuth.isFaceIdEnabledOnDevice() {
             bioAuth.authenticateWithBiometrics(localizedReason: "Let's authenticate with biometrics!", successBlock: {
-                self.authConfirmationLabel.alpha = 1
-                UIView.animate(withDuration: 1.25, animations: {
-                    self.authConfirmationLabel.alpha = 0
-                })
+                DispatchQueue.main.async {
+                    self.authConfirmationLabel.alpha = 1
+                    UIView.animate(withDuration: 1.25, animations: {
+                        self.authConfirmationLabel.alpha = 0
+                    })
+                }
             }, failureBlock: { (error) in
                 if let error = error {
                     switch error.code {
