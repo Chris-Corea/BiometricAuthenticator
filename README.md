@@ -114,6 +114,11 @@ it, simply add the following line to your Podfile:
 pod 'BiometricAuthenticator'
 ```
 
+For versions < Swift 4.2: 
+```ruby
+pod 'BiometricAuthenticator', '~> 1.3.0'
+```
+
 ## Author
 
 Chris Corea, ccorea22@gmail.com
