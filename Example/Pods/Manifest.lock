@@ -1,5 +1,5 @@
 PODS:
-  - BiometricAuthenticator (1.2.0)
+  - BiometricAuthenticator (1.3.0)
 
 DEPENDENCIES:
   - BiometricAuthenticator (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BiometricAuthenticator: 818b710a1b7c29735bfb40852cc70148f8c205de
+  BiometricAuthenticator: bf11e44d7561622f71a729cb5bbcdd1c75fa8636
 
 PODFILE CHECKSUM: 20e59698257dc702ae63abe9ea12cd52ab445517
 
